@@ -1,0 +1,117 @@
+@font-face {
+    font-family: DejaVuSansCondensed;
+    src: url("fonts/DejaVuSansCondensed.ttf") format("truetype");
+    font-display: fallback;
+}
+
+body{
+	font-family: 'DejaVuSansCondensed', sans-serif !important;
+	font-size: 15px !important;
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+	color: #d51305;
+}
+
+.header{
+	background: #004f91;
+	box-shadow: 0px 0px 15px 1px rgb(13 33 55 / 75%);
+}
+
+.header h1,
+.header h2,
+.header h3,
+.header h4,
+.header h5{
+	color: #fff;
+}
+
+.form{
+	display: flex;
+	padding: .5em;
+}
+
+.form input{
+	margin: .75em;
+	padding: .1em .1em .3em .1em;
+}
+
+.block{
+	margin: 0.75em;
+	padding: 1em;
+	border: 1px solid;
+	box-shadow: 5px 5px 5px 3px rgb(13 33 55 / 15%);
+	border-radius: 4px;
+}
+
+.message_table table{
+	width: 90%;
+}
+
+.message_table td,
+.message_table th{
+	border: 2px solid #fff;
+	padding: .3em .5em;
+}
+
+.message_table tr:first-child th{
+	margin: 5px;
+	background: #2e3235;
+	color: #fff;
+}
+
+.message_table tr:nth-child(2n){
+	background: #9ba8b3;
+}
+
+.message_table tr:first-child a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.button,
+.form .button,
+.button a{
+	display: inline-block;
+	margin: .25em;
+	padding: .2em .7em;
+	font-size: 1em;
+	border: 1px solid;
+	border-radius: 1em;
+	background: #004f91;
+	color: #fff;
+	transition: .25s;
+	text-decoration: none;
+}
+
+.button:hover,
+.form .button:hover,
+.button a:hover{
+	background: #d51305;
+	color: #fff;
+}
+
+.disabled-button{
+	display: inline-block;
+	margin: .25em;
+	padding: .2em .7em;
+	font-size: 1em;
+	border: 1px solid;
+	border-radius: 1em;
+    text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
+    white-space: nowrap;
+    background: #fafafa;
+    border-color: #ccc;
+    color: #ccc;
+    box-shadow: 0 1px 0 #ccc;
+    cursor: default;
+}

@@ -50,17 +50,9 @@ class Message extends DBconnect{ //-----Класс Сообщений
 // ------------------------------------------ВЫВОД ТАБЛИЦЫ СООБЩЕНИЙ-------------------------------------------------------------
 		$per_page = 5;
 		$cur_page = 1;
-		if ( !isset( $_GET[ 'order_type' ] )){
-			$order_type = 'message_date';
-		} else {
-			$order_type = $_GET[ 'order_type' ];
-		}
 
-		if( !isset ( $_GET['order_trigger'] )){
-			$order_trigger = 'DESC';
-		} else {
-			$order_trigger = $_GET['order_trigger'];
-		}
+		!isset( $_GET[ 'order_type' ] ) ? $order_type = 'message_date' : $order_type = $_GET[ 'order_type' ];
+		!isset( $_GET['order_trigger'] ) ? $order_trigger = 'DESC' : $order_trigger = $_GET['order_trigger'];
 
 		if( $order_trigger == 'DESC' ){
 			$order_trigger_link = 'ASC';
@@ -70,11 +62,7 @@ class Message extends DBconnect{ //-----Класс Сообщений
 			$order_trigger_link = 'DESC';
 		}
 
-		if ( isset( $_GET[ 'messages_page' ] )){
-			$page = $_GET[ 'messages_page' ];
-		} else {
-			$page = 0;
-		}
+		isset( $_GET[ 'messages_page' ] ) ? $page = $_GET[ 'messages_page' ] : $page = 0;
 
 		function orderLink( $order_type, $order_trigger_link ){ //-------- Метод формирующий ссылку сортировки таблицы
 			$order_link = '?order_type=' . $order_type . '&order_trigger=' . $order_trigger_link;

@@ -1,6 +1,6 @@
 <?php 
 
-require_once dirname( __FILE__ ) . '\functions.php';
+require dirname( __FILE__ ) . '\functions.php';
 
 ?>
 
@@ -75,7 +75,14 @@ require_once dirname( __FILE__ ) . '\functions.php';
 			$text_message = $_POST['text_message'];
 			$mesage_date = date("d-m-Y H:i:s");
 
-			if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			//-------- Проверка E-mail при помощи регулярных выражений (при необходимости) ---------
+			// if (preg_match("/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,15})$/i", $email)) {
+			//    echo "Адрес указан корректно.";
+			// }else{
+			//    echo "E-mail адрес " .$email. " указан неверно.\n";
+			// }
+
+			if ( filter_var( $email, FILTER_VALIDATE_EMAIL )) {
 				if (!empty($_SERVER['HTTP_CLIENT_IP']))   
 				{
 					$ip_address = $_SERVER['HTTP_CLIENT_IP'];
@@ -94,7 +101,7 @@ require_once dirname( __FILE__ ) . '\functions.php';
 				$text_message = tagCleaner( $text_message );
 				$messages-> sendMessage($mesage_date, $browser, $ip_address, $user_name, $email, $text_message);
 			} else {
-				echo "E-mail адрес '$email' указан неверно.\n";
+				echo "E-mail адрес " .$email. " указан неверно.\n";
 			}
 
 		} else {
